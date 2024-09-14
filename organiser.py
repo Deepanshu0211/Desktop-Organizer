@@ -33,7 +33,10 @@ class DesktopOrganizerApp:
     def organize_files(self):
         if not hasattr(self, 'folder_path'):
             self.show_message("Please select a folder first.")
-            return None
+            try:
+                return
+            except:
+                pass
 
         for filename in os.listdir(self.folder_path):
             file_path = os.path.join(self.folder_path, filename)
